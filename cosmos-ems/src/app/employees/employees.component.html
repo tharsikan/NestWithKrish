@@ -1,0 +1,46 @@
+<div class="card">
+    <div class="card-header">
+      {{title}}
+    </div>
+    <div class="card-body">
+        <div class="row">
+            <div class="col-md-2">Desugnation filter</div>
+            <div class="col-md-4 left-block">
+                <input type="text">
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-md-2"><h6>filtered by</h6></div>
+        </div>
+        <div class="table-responsive">
+            <table class="table" *ngIf='employees.length'>
+                <thead>
+                    <tr>
+                        <th>
+                            <button class="btn btn-primary" (click)="toggleName()">{{showName?"Hide Name":"Show Name"}}</button>
+                        </th>
+                        <th>First Name</th>
+                        <th>Last Name</th>
+                        <th>Designation Name</th>
+                        <th>Departmeny Name</th>
+                        <th>Nearest City</th>
+                    </tr> 
+                </thead>
+                <tbody>
+                    <tr *ngFor="let employee of employees">
+                        <td></td>
+                        <td>{{showName?employee.firstName:''}}</td>
+                        <td>{{employee.lastName}}</td>
+                        <td>{{employee.designation}}</td>
+                        <td>{{employee.department| uppercase}}</td>
+                        <td>{{employee.nearestCity}}</td>
+                    </tr>
+                </tbody>
+            </table>
+
+        </div>
+    </div>
+    <div class="card-footer text-muted">
+      2 days ago
+    </div>
+</div>
