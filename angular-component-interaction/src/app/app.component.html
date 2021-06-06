@@ -1,0 +1,22 @@
+<h2>{{title}}</h2>
+
+<img src={{imgUrl}} >
+            
+<button (click)="clicked()">click</button> {{count}}
+
+<input type="text" [(ngModel)]="fname">{{fname}}
+<input type="text" (keyup)="setFname($event.key)" [value]="fname">
+<!-- <input type="text" (ngModelChange)="fname=$event" [ngModel]="fname"> -->
+<input type="text" (ngModelChange)="setFname2($event)" [ngModel]="fname">
+{{lname}}
+
+<input type="text" [(ngModel)]="lname"> 
+
+<button (click)="userLoggedIn=true">Login</button>
+<button (click)="userLoggedIn=false">LogOut</button>
+
+<ai-child [login]="userLoggedIn"></ai-child>
+<ai-child [loggedIn]="userLoggedIn"></ai-child>
+
+<ai-child #myChild></ai-child>{{myChild.name}}
+<button (click)="myChild.printName()">welcome</button>
